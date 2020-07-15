@@ -45,16 +45,26 @@ if options01.index(selection01) == 1: # make a list of names
     num_changes = 0
     num_lines = 0
     
-    if st.button("Make list!"):
+    if st.button("Make list!", key = 0):
         st.write("Making typo list from %d unique names with up to %d repetitions..."%(num_names, max_num_repeats))
-        time.sleep(2)
+        # time.sleep(2)
         make_list_app(num_names, max_num_repeats, num_changes, num_lines)
         
         with open("wordlist.txt", "r") as file:
             string = file.read()
+            
+
         
         ls = split_sentence(string)
-        df = pd.DataFrame(ls, columns = ['company_names'])
-        st.write(df)
+        width_fix = []
+        for i in range(len(ls)):
+            width_fix.append('\t\t\t\t\t\t\t\t\t')
+        df = pd.DataFrame(zip(ls,width_fix), columns = ['company_names', '\t\t\t\t\t\t\t\t\t'])
+        st.dataframe(df)
+        
+        
+        
+                    
+        
             
   
