@@ -26,7 +26,7 @@ def make_list_app(num_names, max_num_repeats, num_changes, num_lines):
                 f.write(new_name + '\n')
     st.write("Num changes: %d\nNum lines: %d"%(num_changes, num_lines))
 
-def split_sentence(sentence: str) -> list:
+def split_by_new_line(sentence: str) -> list:
     words = sentence.split("\n")
     return words
 
